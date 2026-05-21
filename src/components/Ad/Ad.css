@@ -1,3 +1,4 @@
+/* Секция AD */
 .ad {
     width: 100%;
     max-width: 1440px;
@@ -6,6 +7,7 @@
     background-color: #091A2E;
 }
 
+/* Разделительная полоса сверху */
 .ad-divider {
     width: calc(100% + 64px);
     margin-left: -32px;
@@ -13,6 +15,7 @@
     background: rgba(255, 255, 255, 0.08);
 }
 
+/* Контент секции */
 .ad-content {
     display: flex;
     justify-content: space-between;
@@ -20,6 +23,7 @@
     padding: 40px 0;
 }
 
+/* Блок спонсоров */
 .sponsors {
     display: flex;
     flex-direction: column;
@@ -56,6 +60,7 @@
     transform: scale(1.05);
 }
 
+/* Блок партнёров */
 .partners {
     display: flex;
     flex-direction: column;
@@ -92,30 +97,11 @@
     transform: scale(1.05);
 }
 
-@media (max-width: 1024px) {
-    .ad-content {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .sponsors {
-        width: 100%;
-    }
-    
-    .partners {
-        width: 100%;
-    }
-    
-    .sponsors-logos {
-        flex-wrap: wrap;
-    }
-    
-    .partners-logos {
-        flex-wrap: wrap;
-    }
-}
+/* ========== СОСТОЯНИЕ 1: 1440px (по умолчанию) ========== */
+/* 2 колонки: SPONSORS слева, PARTNERS справа */
 
-@media (max-width: 768px) {
+/* ========== СОСТОЯНИЕ 2: 1024px ========== */
+@media (max-width: 1024px) {
     .ad {
         padding: 0 20px;
     }
@@ -126,21 +112,62 @@
     }
     
     .ad-content {
-        padding: 30px 0;
-    }
-    
-    .name-sponsors,
-    .name-partners {
-        font-size: 11px;
-    }
-    
-    .sponsors-logos,
-    .partners-logos {
-        gap: 20px;
+        flex-direction: column;
+        gap: 40px;
     }
     
     .sponsors-logos img,
     .partners-logos img {
-        height: 24px;
+        height: 56px;
+        flex-shrink: 0;
+    }
+    
+    .sponsors,
+    .partners {
+        width: 100%;
+    }
+
+    .sponsors-logos,
+    .partners-logos {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 24px;
+        row-gap: 20px;
+
+        max-width: 100%;
+    }
+}
+
+/* ========== СОСТОЯНИЕ 3: 480px ========== */
+@media (max-width: 480px) {
+    .ad {
+        padding: 0 16px;
+    }
+    
+    .ad-divider {
+        width: calc(100% + 32px);
+        margin-left: -16px;
+    }
+    
+    .ad-content {
+        padding: 30px 0;
+        gap: 30px;
+    }
+    
+    .name-sponsors,
+    .name-partners {
+        font-size: 10px;
+    }
+    
+    .sponsors-logos img,
+    .partners-logos img {
+        height: 56px;
+    }
+    
+    .sponsors-logos,
+    .partners-logos {
+        gap: 16px;
+        flex-wrap: wrap;
     }
 }

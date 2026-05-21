@@ -1,78 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #06121f;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Секция info */
 .info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1440px;
-    height: 620px;
+    min-height: 620px;
     margin: 0 auto;
     padding: 0 32px;
+    gap: 24px;
+    overflow: hidden;
+    
     background: linear-gradient(
-        rgba(6, 18, 31, 0.85),
+        rgba(6, 18, 31, 0.85), 
         rgba(6, 18, 31, 0.85)
-    ), url('/img/back1.png');
+    ), url(../img/back1.png);
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
+/* Контентный блок (левый) */
 .info-content {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 24px;
     max-width: 700px;
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
+/* Заголовок */
 .nameing {
     color: #fff;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
-    font-size: 86px;
+    font-size: clamp(34px, 6vw, 86px);
     line-height: 1.1;
     text-transform: uppercase;
 }
 
+/* Блок с location и date — ВСЕГДА ГОРИЗОНТАЛЬНО */
 .event-details {
     display: flex;
-    gap: 32px;
+    align-items: center;
+    gap: clamp(6px, 1.5vw, 20px);
     margin-top: 8px;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+}
+
+.event-separator {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: clamp(10px, 1vw, 16px);
 }
 
 .location-wrapper,
 .date-wrapper {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .location-wrapper i,
 .date-wrapper i {
-    color: #00d8f5;
-    font-size: 20px;
+    color: rgb(255, 255, 255, 0.5);
+    font-size: clamp(11px, 1.2vw, 18px);
 }
 
 .location,
 .date {
     color: rgba(255, 255, 255, 0.8);
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: clamp(10px, 1.1vw, 16px);
     font-weight: 500;
+    white-space: nowrap;
 }
 
+/* Блок с кнопками */
 .buttons-wrapper {
     display: flex;
-    gap: 20px;
+    gap: clamp(8px, 1.5vw, 20px);
     margin-top: 16px;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: fit-content;
 }
 
+/* Кнопка VIEW EVENT */
 .btn-view-event {
     background-color: #00d8f5;
     color: #06121f;
-    padding: 12px 28px;
+    padding: clamp(7px, 1vw, 12px) clamp(12px, 2vw, 28px);
     cursor: pointer;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: clamp(10px, 1vw, 14px);
     font-weight: 700;
     letter-spacing: 0.5px;
     white-space: nowrap;
@@ -88,17 +125,14 @@
     box-shadow: 0 6px 16px rgba(0, 216, 245, 0.3);
 }
 
-.btn-view-event:active {
-    transform: translateY(1px);
-}
-
+/* Кнопка ALL EVENTS */
 .btn-all-events {
     background-color: #192129;
     color: #ffffff;
-    padding: 12px 28px;
+    padding: clamp(7px, 1vw, 12px) clamp(12px, 2vw, 28px);
     cursor: pointer;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: clamp(10px, 1vw, 14px);
     font-weight: 700;
     letter-spacing: 0.5px;
     white-space: nowrap;
@@ -114,24 +148,24 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.btn-all-events:active {
-    transform: translateY(1px);
-}
-
+/* Правая колонка с новостями */
 .news-content {
-    width: 340px;
-    flex-shrink: 0;
+    width: clamp(220px, 28vw, 340px);
+    flex-shrink: 1;
+    min-width: 220px;
 }
 
+/* Контейнер с новостями */
 .news-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
+/* Карточка новости */
 .news-card {
-    width: 340px;
-    height: 162px;
+    width: 100%;
+    height: clamp(120px, 14vw, 162px);
     border-radius: 4px;
     padding: 16px;
     display: flex;
@@ -140,6 +174,7 @@
     position: relative;
     overflow: hidden;
     transition: all 0.2s ease;
+    background: linear-gradient(135deg, rgba(6, 18, 31, 0.9), rgba(6, 18, 31, 0.7));
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
 }
 
@@ -163,27 +198,9 @@
     z-index: 1;
 }
 
-.news-card-1 {
-    background-image: url('/img/news3.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.news-card-2 {
-    background-image: url('/img/news1.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.news-card-3 {
-    background-image: url('/img/news2.png');
-    background-size: cover;
-    background-position: center;
-}
-
 .news-title {
     color: #00d8f5;
-    font-family: 'inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
@@ -195,60 +212,60 @@
     color: #fff;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
-    font-size: 15px;
+    font-size: clamp(11px, 1.2vw, 15px);
     line-height: 1.4;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-@media (max-width: 1200px) {
-    .info {
-        flex-direction: column;
-        height: auto;
-        padding: 40px 20px;
-        gap: 40px;
-    }
-    
-    .info-content {
-        max-width: 100%;
-        text-align: center;
-    }
-    
-    .event-details {
-        justify-content: center;
-    }
-    
-    .buttons-wrapper {
-        justify-content: center;
-    }
-    
-    .nameing {
-        font-size: 60px;
-    }
+.news-card-1 {
+    background-image: url('../img/news3.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-@media (max-width: 768px) {
+.news-card-2 {
+    background-image: url('../img/news1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.news-card-3 {
+    background-image: url('../img/news2.png');
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 480px) {
+
+    .info {
+        padding: 32px 16px;
+        min-height: auto;
+    }
+
     .nameing {
-        font-size: 40px;
+        font-size: 36px;
+        line-height: 1.05;
     }
-    
+
     .event-details {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
+        flex-wrap: wrap;
+        gap: 6px;
     }
-    
+
     .buttons-wrapper {
-        flex-direction: column;
-        align-items: center;
+    gap: 8px;
     }
-    
+
+    .btn-view-event,
+    .btn-all-events {
+        width: auto;
+        flex: 1;
+    }
+
+    /* скрываем правую колонку */
+
     .news-content {
-        width: 100%;
-        max-width: 340px;
-    }
-    
-    .news-card {
-        width: 100%;
+        display: none;
     }
 }

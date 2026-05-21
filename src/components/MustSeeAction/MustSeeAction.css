@@ -1,3 +1,4 @@
+/* Секция MUST-SEE ACTION */
 .must-see-action {
     width: 100%;
     max-width: 1440px;
@@ -6,6 +7,7 @@
     background-color: #091A2E;
 }
 
+/* Заголовок секции с линией и кнопкой */
 .action-naming {
     display: flex;
     align-items: center;
@@ -25,16 +27,19 @@
     margin: 0;
 }
 
+/* Линия после заголовка — 80px */
 .action-line {
     width: 80px;
     height: 1px;
     background: rgba(255, 255, 255, 0.32);
 }
 
+/* Пустое пространство, которое толкает кнопку вправо */
 .action-spacer {
     flex: 1;
 }
 
+/* Кнопка MORE — справа */
 .action-more-btn {
     background: transparent;
     border: none;
@@ -54,6 +59,7 @@
     opacity: 0.6;
 }
 
+/* Контейнер с видео */
 .action-container {
     display: flex;
     flex-direction: column;
@@ -61,6 +67,7 @@
     width: 100%;
 }
 
+/* Видео карточка */
 .video-container {
     display: flex;
     align-items: center;
@@ -76,6 +83,7 @@
     transform: translateX(4px);
 }
 
+/* Номер видео */
 .number-video {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 32px;
@@ -85,6 +93,7 @@
     opacity: 0.7;
 }
 
+/* Обёртка для изображения и иконки play */
 .video-image-wrapper {
     position: relative;
     width: 140px;
@@ -99,6 +108,7 @@
     border-radius: 4px;
 }
 
+/* Иконка play по центру */
 .play-icon {
     position: absolute;
     top: 50%;
@@ -125,6 +135,7 @@
     transform: translate(-50%, -50%) scale(1.1);
 }
 
+/* Информация о видео */
 .video-info {
     flex: 1;
     display: flex;
@@ -150,6 +161,7 @@
     text-transform: uppercase;
 }
 
+/* Кнопка WATCH */
 .watch-btn {
     background: transparent;
     border: none;
@@ -169,6 +181,16 @@
     opacity: 0.6;
 }
 
+.watch-btn::after {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.watch-btn:hover::after {
+    transform: translateX(4px);
+}
+
+/* Адаптив */
 @media (max-width: 1024px) {
     .video-container {
         flex-wrap: wrap;
@@ -183,9 +205,13 @@
     .text-information {
         font-size: 16px;
     }
+
+    .action-title {
+        margin: 10px;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .must-see-action {
         padding: 0 20px;
         margin: 30px auto;
@@ -193,6 +219,7 @@
     
     .action-title {
         font-size: 12px;
+        margin: 30px;
     }
     
     .video-container {

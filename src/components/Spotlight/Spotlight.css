@@ -1,3 +1,4 @@
+/* Секция ESC SPOTLIGHT — только на экранах шире 1024px */
 .esc-spotlight {
     width: 100%;
     max-width: 1440px;
@@ -6,6 +7,7 @@
     background-color: #06121f;
 }
 
+/* Заголовок секции с линией и кнопкой */
 .spotlight-naming {
     display: flex;
     align-items: center;
@@ -25,16 +27,19 @@
     margin: 0;
 }
 
+/* Линия после заголовка — 80px */
 .spotlight-line {
     width: 80px;
     height: 1px;
     background: rgba(255, 255, 255, 0.32);
 }
 
+/* Пустое пространство, которое толкает кнопку вправо */
 .spotlight-spacer {
     flex: 1;
 }
 
+/* Кнопка MORE — справа */
 .spotlight-more-btn {
     background: transparent;
     border: none;
@@ -54,6 +59,7 @@
     opacity: 0.6;
 }
 
+/* Контейнер с мини-новостями — в одну строку */
 .spotlight-container {
     display: flex;
     flex-direction: row;
@@ -62,6 +68,7 @@
     width: 100%;
 }
 
+/* Карточка мини-новости — изображение слева, текст справа */
 .mini-news-container {
     display: flex;
     align-items: center;
@@ -75,6 +82,7 @@
     transform: translateY(-2px);
 }
 
+/* Изображение слева */
 .mini-news-container img {
     width: 80px;
     height: 80px;
@@ -84,6 +92,7 @@
     flex-shrink: 0;
 }
 
+/* Контент справа от картинки */
 .mini-news-content {
     display: flex;
     flex-direction: column;
@@ -109,32 +118,24 @@
     text-transform: uppercase;
 }
 
-@media (max-width: 1200px) {
+/* ========== 1440px (по умолчанию): 4 колонки ========== */
+
+/* ========== 1024px: 2 колонки ========== */
+@media (max-width: 1024px) {
     .spotlight-container {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 20px;
     }
     
     .mini-news-container {
-        width: calc(50% - 12px);
+        width: calc(50% - 10px);
     }
 }
 
-@media (max-width: 768px) {
+/* ========== НИЖЕ 1024px — БЛОК ПОЛНОСТЬЮ СКРЫВАЕТСЯ ========== */
+@media (max-width: 1023px) {
     .esc-spotlight {
-        padding: 0 20px;
-        margin: 30px auto;
-    }
-    
-    .spotlight-title {
-        font-size: 12px;
-    }
-    
-    .spotlight-container {
-        flex-direction: column;
-    }
-    
-    .mini-news-container {
-        width: 100%;
+        display: none;
     }
 }

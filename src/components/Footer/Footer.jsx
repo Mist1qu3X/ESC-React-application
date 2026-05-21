@@ -23,8 +23,9 @@ const Footer = () => {
             <div className="other-links-container">
                 <div className="logo-inf">
                     <div className="logo-wrapper">
-                        <img src="/img/logo.jpeg" alt="ESC Logo" />
+                        <img src="/img/logo.svg" alt="ESC Logo" />
                         <h4>ESC</h4>
+                        <span className="full-title">European Shooting Confederation</span>
                     </div>
                     <p className="info-corp">
                         The official governing body for precision shooting sport in Europe.

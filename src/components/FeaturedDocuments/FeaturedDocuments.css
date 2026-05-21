@@ -1,11 +1,13 @@
+/* Секция FEATURED DOCUMENTS */
 .featured-documents {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 30px 0 50px 0;
+    padding: 30px 32px 50px 32px;
     background-color: #06121f;
 }
 
+/* Заголовок секции */
 .documents-naming {
     display: flex;
     align-items: center;
@@ -54,17 +56,18 @@
     opacity: 0.6;
 }
 
+/* Контейнер с документами */
 .document-container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 5px;
     width: 100%;
 }
 
+/* Карточка документа */
 .document {
     background: #0C233D;
     padding: 20px;
-    width: calc(25% - 3.75px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     display: flex;
@@ -148,41 +151,86 @@
     color: #00d8f5;
 }
 
-@media (max-width: 1200px) {
+/* ========== СОСТОЯНИЕ 1: 1440px ========== */
+@media (min-width: 1025px) {
     .document-container {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+    
+    .document {
+        width: calc(25% - 3.75px);
+    }
+}
+
+/* ========== СОСТОЯНИЕ 2: 1024px ========== */
+@media (max-width: 1024px) {
+    .featured-documents {
+        padding: 30px 20px 50px 20px;
+    }
+    
+    .document-container {
+        justify-content: flex-start;
     }
     
     .document {
         width: calc(50% - 2.5px);
     }
+    
+    .document-title {
+        font-size: 18px;
+    }
 }
 
-@media (max-width: 768px) {
+/* ========== СОСТОЯНИЕ 3: 480px ========== */
+@media (max-width: 480px) {
     .featured-documents {
-        padding: 20px 20px 40px 20px;
+        padding: 20px 16px 40px 16px;
     }
     
     .documents-title {
         font-size: 12px;
     }
     
-    .documents-naming {
-        margin-bottom: 20px;
+    .documents-line {
+        width: 60px;
     }
     
+    .documents-more-btn {
+        font-size: 11px;
+    }
+    
+    /* НА 480px: 2 колонки (1 2 / 3 4) */
     .document-container {
-        flex-direction: column;
-        gap: 16px;
+        justify-content: flex-start;
+        gap: 5px;
     }
     
     .document {
-        width: 100%;
+        width: calc(50% - 2.5px);
     }
     
     .document-title {
-        font-size: 18px;
+        font-size: 14px;
+    }
+    
+    .doc-header i {
+        font-size: 24px;
+    }
+    
+    .version {
+        font-size: 9px;
+    }
+    
+    .document .theme {
+        font-size: 9px;
+    }
+    
+    .download-text {
+        font-size: 9px;
+    }
+    
+    .download-area i {
+        font-size: 12px;
     }
 }

@@ -1,11 +1,12 @@
+/* Секция LATEST FROM ESC */
 .lastest-from-esc {
     width: 100%;
     max-width: 1440px;
     margin: 50px auto;
-    padding: 0 32px;
     background-color: #06121f;
 }
 
+/* Заголовок секции с линией и кнопкой */
 .section-naming {
     display: flex;
     align-items: center;
@@ -25,16 +26,19 @@
     margin: 0;
 }
 
+/* Линия после заголовка — 80px */
 .section-line {
     width: 80px;
     height: 1px;
     background: rgba(255, 255, 255, 0.32);
 }
 
+/* Пустое пространство, которое толкает кнопку вправо */
 .section-spacer {
     flex: 1;
 }
 
+/* Кнопка MORE — справа */
 .more-btn {
     background: transparent;
     border: none;
@@ -54,16 +58,18 @@
     opacity: 0.6;
 }
 
+/* Контейнер с новостями */
 .lastest-news-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 5px;
     width: 100%;
 }
 
+/* Карточка новости */
 .news {
-    width: 342.5px;
-    height: 312.45px;
+    width: calc(25% - 3.75px);
     background: #0c233d;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -77,6 +83,7 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
+/* Изображение */
 .news img {
     width: 100%;
     height: 180px;
@@ -84,6 +91,7 @@
     display: block;
 }
 
+/* Контент карточки */
 .news .theme {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
@@ -113,35 +121,23 @@
     margin: 0 16px 16px 16px;
 }
 
-@media (max-width: 1400px) {
-    .lastest-news-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .news {
-        width: calc(50% - 5px);
-        min-width: 280px;
-    }
-}
+/* ========== 1440px (по умолчанию): 4 колонки ========== */
 
-@media (max-width: 768px) {
+/* ========== 1024px: 2 колонки (1 2, 3 4) ========== */
+@media (max-width: 1024px) {
     .lastest-from-esc {
         padding: 0 20px;
     }
     
+    .news {
+        width: calc(50% - 2.5px);
+    }
+}
+
+/* ========== 768px: всё ещё 2 колонки, уменьшаем карточки ========== */
+@media (max-width: 768px) {
     .section-title {
         font-size: 12px;
-    }
-    
-    .lastest-news-container {
-        gap: 16px;
-    }
-    
-    .news {
-        width: 100%;
-        height: auto;
-        min-height: 280px;
     }
     
     .news img {
@@ -150,5 +146,17 @@
     
     .news .description {
         font-size: 16px;
+    }
+}
+
+/* ========== 480px: 1 колонка (вертикально) ========== */
+@media (max-width: 480px) {
+    .lastest-news-container {
+        gap: 16px;
+    }
+    
+    .news {
+        width: 100%;
+        height: auto;
     }
 }

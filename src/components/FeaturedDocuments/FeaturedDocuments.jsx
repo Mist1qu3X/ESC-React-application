@@ -43,7 +43,7 @@ const FeaturedDocuments = () => {
                 <p className="documents-title">FEATURED DOCUMENTS</p>
                 <div className="documents-line"></div>
                 <div className="documents-spacer"></div>
-                <button className="documents-more-btn" onClick={handleMore}>MORE →</button>
+                <button className="documents-more-btn" onClick={handleMore}>MORE &gt;</button>
             </div>
             <div className="document-container">
                 {documents.map((doc, index) => (

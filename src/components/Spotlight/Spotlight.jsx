@@ -35,7 +35,7 @@ const Spotlight = () => {
                 <p className="spotlight-title">ESC SPOTLIGHT</p>
                 <div className="spotlight-line"></div>
                 <div className="spotlight-spacer"></div>
-                <button className="spotlight-more-btn" onClick={handleMore}>MORE →</button>
+                <button className="spotlight-more-btn" onClick={handleMore}>MORE &gt;</button>
             </div>
             <div className="spotlight-container">
                 {miniNews.map((item, index) => (

@@ -43,6 +43,7 @@ const Info = () => {
                         <i className="fa-solid fa-location-dot"></i>
                         <p className="location">Prague, Czech Republic</p>
                     </div>
+                    <span className="event-separator">•</span>
                     <div className="date-wrapper">
                         <i className="fa-regular fa-calendar"></i>
                         <p className="date">Nov 12-18, 2026</p>
