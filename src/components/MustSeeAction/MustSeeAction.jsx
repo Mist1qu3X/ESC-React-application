@@ -34,10 +34,7 @@ const MustSeeAction = () => {
             <div className="action-container">
                 {videos.map((video, index) => {
                     const { title, category, description, thumbnail } = video;
-                    const rawUrl = thumbnail?.url;
-                    const thumbnailUrl = rawUrl?.startsWith('http') 
-                        ? rawUrl 
-                        : `${config.API_URL}${rawUrl}`;
+                    const thumbnailUrl = thumbnail?.url;
                     
                     return (
                         <div className="video-container" key={video.id}>

@@ -33,10 +33,7 @@ const Spotlight = () => {
             <div className="spotlight-container">
                 {miniNews.map((item) => {
                     const { name, theme, image } = item;
-                    const rawUrl = image?.url;
-                    const imageUrl = rawUrl?.startsWith('http') 
-                        ? rawUrl 
-                        : `${config.API_URL}${rawUrl}`;
+                    const imageUrl = image?.url;
                     
                     return (
                         <div className="mini-news-container" key={item.id}>
