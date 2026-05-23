@@ -32,7 +32,7 @@ const Spotlight = () => {
             </div>
             <div className="spotlight-container">
                 {miniNews.map((item) => {
-                    const { name, theme, image } = item;
+                    const { title, theme, image } = item;
                     const imageUrl = image?.url;
                     
                     return (
@@ -42,7 +42,7 @@ const Spotlight = () => {
                             )}
                             <div className="mini-news-content">
                                 <p className="theme">{theme}</p>
-                                <p className="text-info">{name}</p>
+                                <p className="text-info">{title}</p>
                             </div>
                         </div>
                     );
