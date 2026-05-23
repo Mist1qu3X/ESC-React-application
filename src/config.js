@@ -1,5 +1,5 @@
 const config = {
-    API_URL: 'https://random-name.strapiapp.com'
+    API_URL: 'https://calm-dog-8407190511.strapiapp.com'
 };
 
 export default config;
