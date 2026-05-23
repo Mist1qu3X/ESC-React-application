@@ -32,17 +32,20 @@ const Spotlight = () => {
             </div>
             <div className="spotlight-container">
                 {miniNews.map((item) => {
-                    const { title, theme, image } = item;
-                    const imageUrl = image?.formats?.thumbnail?.url || image?.url;
+                    const { name, theme, image } = item;
+                    const rawUrl = image?.url;
+                    const imageUrl = rawUrl?.startsWith('http') 
+                        ? rawUrl 
+                        : `${config.API_URL}${rawUrl}`;
                     
                     return (
                         <div className="mini-news-container" key={item.id}>
                             {imageUrl && (
-                                <img src={`${config.API_URL}${imageUrl}`} alt={title} />
+                                <img src={imageUrl} alt={name} />
                             )}
                             <div className="mini-news-content">
                                 <p className="theme">{theme}</p>
-                                <p className="text-info">{title}</p>
+                                <p className="text-info">{name}</p>
                             </div>
                         </div>
                     );

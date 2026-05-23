@@ -34,14 +34,17 @@ const MustSeeAction = () => {
             <div className="action-container">
                 {videos.map((video, index) => {
                     const { title, category, description, thumbnail } = video;
-                    const thumbnailUrl = thumbnail?.formats?.small?.url || thumbnail?.url;
+                    const rawUrl = thumbnail?.url;
+                    const thumbnailUrl = rawUrl?.startsWith('http') 
+                        ? rawUrl 
+                        : `${config.API_URL}${rawUrl}`;
                     
                     return (
                         <div className="video-container" key={video.id}>
                             <p className="number-video">{String(index + 1).padStart(2, '0')}</p>
                             <div className="video-image-wrapper">
                                 {thumbnailUrl && (
-                                    <img src={`${config.API_URL}${thumbnailUrl}`} alt={title} />
+                                    <img src={thumbnailUrl} alt={title} />
                                 )}
                                 <div className="play-icon">
                                     <i className="fa-solid fa-play"></i>
